@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essay Submission History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Essay Submission History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Submission Date</th>
+                <th>Feedback</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for essay in essays %}
+                <tr>
+                    <td>{{ essay.title }}</td>
+                    <td>{{ essay.submission_date }}</td>
+                    <td>{{ essay.feedback_text }}</td> <!-- Assuming 'feedback' is a field in your Essay model -->
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">No essays submitted yet.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
