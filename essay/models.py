@@ -9,4 +9,8 @@ class Essay(models.Model):
     body = models.TextField()
     submission_date = models.DateTimeField(auto_now_add=True)
     feedback_text = models.TextField(blank=True)
+    mispelled_word = models.TextField(blank=True)
+    word = models.TextField(max_length=100, null=True)
+    words_count = models.IntegerField(default=True)
+    
 
